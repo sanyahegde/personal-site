@@ -92,7 +92,7 @@ function optimize() {
               className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white"
           >
               Sanya Hegde
-              <span className="block mt-2">
+              <span className="block mt-3">
                 <TypewriterTagline />
               </span>
           </motion.h1>
@@ -102,7 +102,7 @@ function optimize() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-400"
+              className="text-xl md:text-2xl font-semibold text-gray-700 dark:text-gray-300"
           >
               Computer Science Student
           </motion.h2>
@@ -131,7 +131,7 @@ function optimize() {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-teal-500 hover:text-white transition-all duration-200 hover:scale-110"
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700 hover:bg-teal-500 hover:text-white hover:border-teal-500 transition-all duration-200 hover:scale-110"
                   aria-label={social.label}
                 >
                   <social.icon size={20} />
@@ -155,7 +155,7 @@ function optimize() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative lg:-mt-8"
+            className="relative lg:-mt-6"
           >
             <div className="relative bg-gray-900 rounded-xl shadow-2xl overflow-hidden border border-gray-700">
               {/* Code Editor Header */}

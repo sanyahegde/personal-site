@@ -97,7 +97,7 @@ const Header = () => {
                   >
                     {item.name}
                     {isActive && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-teal-500 to-emerald-500" />
+                      <span className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-teal-500 to-emerald-500" />
                     )}
                   </button>
                 )

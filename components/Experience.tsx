@@ -7,7 +7,19 @@ const Experience = () => {
   const workExperience = [
     {
       title: 'Software Engineer Intern',
-      company: 'Toyota, Parts Supply Chain',
+      company: 'Q2 Software',
+      period: 'May 2024 – August 2024',
+      location: 'Austin, TX',
+      bullets: [
+        'Worked on the Q2 Console team under Reporting, developing and maintaining financial reporting features for banking applications',
+        'Collaborated with cross-functional teams to implement new reporting capabilities and improve existing functionality',
+        'Contributed to code reviews and participated in agile development processes'
+      ],
+      technologies: ['JavaScript', 'React', 'Node.js', 'SQL', 'Git']
+    },
+    {
+      title: 'Software Engineer Intern',
+      company: 'Toyota Motor North America',
       period: 'May 2024 – August 2024',
       location: 'Plano, TX',
       bullets: [
@@ -17,18 +29,6 @@ const Experience = () => {
         'Designed and implemented SQL validation workflows to ensure supplier data integrity and prevent invalid transactions/users, improving system reliability and reducing manual errors'
       ],
       technologies: ['Angular', 'Node.js', 'Java', 'GraphQL', 'AWS', 'S3', 'EC2', 'Jenkins', 'SQL']
-    },
-    {
-      title: 'Web Development Intern',
-      company: 'MYNGL, Video and Chat Application',
-      period: 'Nov 2022 – April 2023',
-      location: 'Richardson, TX',
-      bullets: [
-        'Led development of a real-time messaging API using WebSockets and Socket.IO, with secure authentication and low-latency communication. Integrated RabbitMQ for queuing and Redis for caching, reducing message delivery latency by 20%',
-        'Implemented reusable Angular components for the chat interface, user profiles, and video controls, reducing initial code duplication by 33% and ensuring a consistent user experience across pages of the application',
-        'Built Tableau dashboards to monitor key user success and operational metrics (e.g., active users, message delivery rates, API latency) by querying PostgreSQL data, reducing our issue detection and resolution time by 20%'
-      ],
-      technologies: ['Angular', 'Node.js', 'WebSockets', 'Socket.IO', 'RabbitMQ', 'Redis', 'PostgreSQL', 'Tableau']
     }
   ]
 
@@ -141,17 +141,17 @@ const Experience = () => {
                   </h4>
                 </div>
                 
-                <div className="space-y-1 text-sm text-gray-600 dark:text-gray-400 mb-3">
+                <div className="space-y-2 text-base text-gray-600 dark:text-gray-400 mb-3">
                   <div className="flex items-center">
-                    <GraduationCap size={16} className="mr-2" />
-                    {edu.school}
+                    <GraduationCap size={18} className="mr-2" />
+                    <span className="font-semibold">{edu.school}</span>
                   </div>
                   <div className="flex items-center">
-                    <Calendar size={16} className="mr-2" />
+                    <Calendar size={18} className="mr-2" />
                     {edu.period}
                   </div>
                   <div className="flex items-center">
-                    <MapPin size={16} className="mr-2" />
+                    <MapPin size={18} className="mr-2" />
                     {edu.location}
                   </div>
                 </div>

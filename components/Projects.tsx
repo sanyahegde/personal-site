@@ -122,9 +122,6 @@ const Projects = () => {
               className={`group ${isOdd ? 'md:mt-0' : 'md:mt-8'}`}
             >
               <div className="bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-teal-500/50 hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
-                {/* Project Header with Accent */}
-                <div className={`h-2 bg-gradient-to-r ${project.color}`}></div>
-                
                 <div className="p-6 flex-1 flex flex-col">
                   {/* Category */}
                   <p className="text-xs text-teal-600 dark:text-teal-400 mb-2 font-semibold uppercase tracking-wider">
