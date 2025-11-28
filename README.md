@@ -1,207 +1,135 @@
-# Personal Portfolio Website
+Personal Portfolio
 
-A modern, responsive personal portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features smooth animations, dark mode support, and a professional design.
+This is the codebase for my personal portfolio website — a place to share my work, projects, and a bit about who I am. I built it to have one central home for everything I’m working on and to experiment with modern frontend tools along the way.
 
-## 🚀 Features
+The site is built with Next.js, TypeScript, and Tailwind CSS, with a focus on clean UI, fast performance, and simple maintainability.
 
-- **Modern Design**: Clean, professional layout with smooth animations
-- **Responsive**: Fully responsive design that works on all devices
-- **Dark Mode**: Toggle between light and dark themes
-- **Smooth Scrolling**: Seamless navigation between sections
-- **Interactive Elements**: Hover effects and micro-interactions
-- **SEO Optimized**: Built with Next.js for optimal performance
-- **TypeScript**: Full type safety and better development experience
+Features
 
-## 🛠️ Tech Stack
+Responsive layout that works across mobile and desktop
 
-- **Frontend**: Next.js 14, React 18, TypeScript
-- **Styling**: Tailwind CSS, CSS Modules
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Deployment**: Vercel (recommended)
+Light/dark theme with a toggle
 
-## 📁 Project Structure
+Smooth transitions and subtle motion using Framer Motion
 
-```
-personal-portfolio/
-├── app/                    # Next.js app directory
-│   ├── globals.css        # Global styles and Tailwind imports
-│   ├── layout.tsx         # Root layout component
-│   └── page.tsx           # Main page component
-├── components/             # React components
-│   ├── Header.tsx         # Navigation header
-│   ├── Hero.tsx           # Hero section
-│   ├── About.tsx          # About section
-│   ├── Skills.tsx         # Skills showcase
-│   ├── Projects.tsx       # Portfolio projects
-│   ├── Experience.tsx     # Work experience
-│   ├── Contact.tsx        # Contact form
-│   ├── Footer.tsx         # Footer component
-│   └── ThemeToggle.tsx    # Theme switcher
-├── public/                 # Static assets
-├── package.json            # Dependencies and scripts
-├── tailwind.config.js     # Tailwind configuration
-├── tsconfig.json          # TypeScript configuration
-└── README.md              # Project documentation
-```
+Sections for projects, skills, experience, and personal highlights
 
-## 🚀 Getting Started
+Easy content updates through simple component edits
 
-### Prerequisites
+Tech Stack
 
-- Node.js 18+ 
-- npm or yarn
+Framework: Next.js 14 (App Router)
 
-### Installation
+Language: TypeScript
 
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd personal-portfolio
-   ```
+Styling: Tailwind CSS
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+Animations: Framer Motion
 
-3. **Run the development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
+Icons: Lucide React
 
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+Deployment: Vercel
 
-## 🎨 Customization
+Running Locally
 
-### Personal Information
+Make sure you have Node 18+ installed.
 
-Update the following files with your information:
+git clone <repo-url>
+cd <project-folder>
+npm install
+npm run dev
 
-- **Personal Details**: Edit `components/About.tsx`
-- **Skills**: Modify `components/Skills.tsx`
-- **Projects**: Update `components/Projects.tsx`
-- **Experience**: Edit `components/Experience.tsx`
-- **Contact**: Update `components/Contact.tsx`
 
-### Styling
+Then open:
 
-- **Colors**: Modify `tailwind.config.js` for custom color schemes
-- **Fonts**: Update `app/globals.css` for custom typography
-- **Layout**: Adjust spacing and layout in individual components
+http://localhost:3000
 
-### Content
+Project Structure
 
-- **Hero Section**: Update name, title, and description in `components/Hero.tsx`
-- **Navigation**: Modify navigation items in `components/Header.tsx`
-- **Social Links**: Update social media URLs in `components/Contact.tsx` and `components/Footer.tsx`
+A high-level look at how things are organized:
 
-## 📱 Responsive Design
+app/
+  ├─ components/        # Reusable UI components
+  ├─ sections/          # Full-page sections (Hero, Highlights, etc.)
+  ├─ styles/            # Global styles
+  └─ page.tsx           # Main page
 
-The website is fully responsive and optimized for:
-- Mobile devices (320px+)
-- Tablets (768px+)
-- Desktop (1024px+)
-- Large screens (1280px+)
+public/                 # Images and static assets
 
-## 🌙 Dark Mode
+Editing Content
 
-The website includes a built-in dark mode toggle that:
-- Automatically detects user's system preference
-- Saves user's choice in localStorage
-- Provides smooth transitions between themes
-- Maintains consistent styling across both themes
+Most updates live inside the components or sections folders.
 
-## 🚀 Deployment
+About Section: /sections/About.tsx
 
-### Vercel (Recommended)
+Projects: /sections/Projects.tsx
 
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Deploy automatically on every push
+Experience: /sections/Experience.tsx
 
-### Other Platforms
+Skills: /sections/Skills.tsx
 
-The website can be deployed to any platform that supports Next.js:
-- Netlify
-- AWS Amplify
-- DigitalOcean App Platform
-- Heroku
+Highlights: /sections/Highlights.tsx
 
-## 📝 Available Scripts
+Social links / footer: /components/Footer.tsx
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
+Tailwind makes it easy to adjust layout, spacing, colors, or add your own components.
 
-## 🔧 Configuration Files
+Customization
 
-- **`next.config.js`** - Next.js configuration
-- **`tailwind.config.js`** - Tailwind CSS configuration
-- **`tsconfig.json`** - TypeScript configuration
-- **`postcss.config.js`** - PostCSS configuration
+Colors: update tailwind.config.js
 
-## 🎯 Performance Features
+Typography: edit global styles in /app/globals.css
 
-- **Image Optimization**: Next.js automatic image optimization
-- **Code Splitting**: Automatic code splitting for better performance
-- **Lazy Loading**: Components load as they come into view
-- **Optimized Fonts**: Google Fonts with proper loading strategies
+Animations: located in components using Framer Motion
 
-## 🐛 Troubleshooting
+Images: swap out files in /public
 
-### Common Issues
+Deployment
 
-1. **Port already in use**
-   ```bash
-   # Kill process on port 3000
-   lsof -ti:3000 | xargs kill -9
-   ```
+The site is deployed through Vercel.
+Any push to main automatically triggers a new deployment.
 
-2. **TypeScript errors**
-   ```bash
-   # Clear TypeScript cache
-   rm -rf .next
-   npm run dev
-   ```
+If you want to deploy your own fork:
 
-3. **Tailwind not working**
-   ```bash
-   # Rebuild CSS
-   npm run build
-   ```
+Create a Vercel account
 
-## 🤝 Contributing
+Import the repo
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+Click Deploy
 
-## 📄 License
+That’s it.
 
-This project is open source and available under the [MIT License](LICENSE).
+Scripts
+npm run dev       # local development
+npm run build     # production build
+npm run start     # run production build
+npm run lint      # lints the codebase
 
-## 🙏 Acknowledgments
+Troubleshooting
 
-- [Next.js](https://nextjs.org/) - React framework
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- [Framer Motion](https://www.framer.com/motion/) - Animation library
-- [Lucide](https://lucide.dev/) - Beautiful icons
+Tailwind classes not applying
+Try restarting the dev server.
 
-## 📞 Support
+Port 3000 already in use
 
-If you have any questions or need help:
-- Open an issue on GitHub
-- Contact: your.email@example.com
+lsof -ti:3000 | xargs kill -9
 
----
 
-**Happy coding! 🚀** 
+TypeScript complaints after changing files
+
+rm -rf .next
+npm run dev
+
+Contributing
+
+This is a personal project, but if you want to suggest improvements, feel free to open an issue or PR.
+
+License
+
+MIT — feel free to use parts of this project for your own portfolio.
+
+Contact
+
+If you want to reach out or collaborate:
+
+sanyahegde7@gmail.com
