@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
-import Skills from '@/components/Skills'
 import CurrentlyBuilding from '@/components/CurrentlyBuilding'
 import Projects from '@/components/Projects'
 import Experience from '@/components/Experience'
@@ -44,7 +43,6 @@ export default function Home() {
       <main className="bg-white dark:bg-gray-900">
         <Hero />
         <About />
-        <Skills />
         <CurrentlyBuilding />
         <Projects />
         <Experience />

@@ -16,7 +16,7 @@ const Header = () => {
       setIsScrolled(window.scrollY > 50)
       
       // Determine active section based on scroll position
-      const sections = ['home', 'about', 'skills', 'projects', 'experience', 'contact']
+      const sections = ['home', 'about', 'projects', 'experience', 'contact']
       const scrollPosition = window.scrollY + 100
       
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -35,7 +35,6 @@ const Header = () => {
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
     { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' },

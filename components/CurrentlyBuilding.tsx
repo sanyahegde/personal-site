@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Code2, Zap, Coffee, Rocket } from 'lucide-react'
+import { Code2, Coffee, Rocket } from 'lucide-react'
 
 const CurrentlyBuilding = () => {
   const items = [
@@ -10,12 +10,6 @@ const CurrentlyBuilding = () => {
       description: 'Adding AI-powered study suggestions',
       icon: Code2,
       color: 'from-teal-500 to-emerald-500'
-    },
-    {
-      title: 'Learning FastAPI',
-      description: 'Building microservices architecture',
-      icon: Zap,
-      color: 'from-blue-500 to-cyan-500'
     },
     {
       title: 'Practicing DSA',
@@ -50,7 +44,7 @@ const CurrentlyBuilding = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {items.map((item, index) => {
             const Icon = item.icon
             return (
