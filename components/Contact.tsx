@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react'
+import { Mail, MapPin, Send, CheckCircle } from 'lucide-react'
 import CodeBackground from './CodeBackground'
 
 const Contact = () => {
@@ -43,12 +43,6 @@ const Contact = () => {
       title: 'Email',
       value: 'sanyahegde7@gmail.com',
       link: 'mailto:sanyahegde7@gmail.com'
-    },
-    {
-      icon: Phone,
-      title: 'Phone',
-      value: '(469) 247-7056',
-      link: 'tel:+14692477056'
     },
     {
       icon: MapPin,
@@ -132,9 +126,6 @@ const Contact = () => {
                 Connect
               </h4>
               <div className="space-y-2 text-gray-600 dark:text-gray-300">
-                <a href="tel:+14692477056" className="block hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
-                  (469) 247-7056
-                </a>
                 <a href="mailto:sanyahegde7@gmail.com" className="block hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
                   sanyahegde7@gmail.com
                 </a>
