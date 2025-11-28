@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Briefcase, GraduationCap, Calendar, MapPin } from 'lucide-react'
+import CodeBackground from './CodeBackground'
 
 const Experience = () => {
   const workExperience = [
@@ -44,8 +45,9 @@ const Experience = () => {
   ]
 
   return (
-    <section id="experience" className="section-padding bg-white dark:bg-gray-900">
-      <div className="container-custom max-w-4xl">
+    <section id="experience" className="section-padding bg-white dark:bg-gray-900 relative overflow-hidden">
+      <CodeBackground />
+      <div className="container-custom max-w-4xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

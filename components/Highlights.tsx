@@ -3,11 +3,12 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { useState } from 'react'
+import CodeBackground from './CodeBackground'
 
 // Photo Grid Component
 const PhotoGrid = ({ photos }: { photos: Array<{ id: string; src: string; caption?: string }> }) => {
   return (
-    <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {photos.map((photo, index) => (
         <motion.div
           key={photo.id}
@@ -15,14 +16,23 @@ const PhotoGrid = ({ photos }: { photos: Array<{ id: string; src: string; captio
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
           viewport={{ once: true }}
-          className="break-inside-avoid mb-4 group"
+          className="group"
         >
-          <div className="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="aspect-[4/5] bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
-              <span className="text-gray-400 dark:text-gray-500 text-sm">Photo {index + 1}</span>
-            </div>
+          <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+            {photo.src ? (
+              <img
+                src={photo.src}
+                alt={photo.caption || `Photo ${index + 1}`}
+                className="w-full h-auto object-cover"
+                loading="lazy"
+              />
+            ) : (
+              <div className="aspect-[4/5] bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                <span className="text-gray-400 text-sm">Photo {index + 1}</span>
+              </div>
+            )}
             {photo.caption && (
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                 <p className="text-white text-sm font-medium">{photo.caption}</p>
               </div>
             )}
@@ -53,18 +63,18 @@ const LifeChapterSection = ({
     >
       <div className={`flex flex-col ${imageSide === 'right' ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-center`}>
         <div className="flex-1">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {title}
           </h2>
           <div className="h-1 w-20 bg-[#0d9488] mb-6"></div>
-          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
             {content}
           </p>
         </div>
         <div className="flex-1 w-full">
-          <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800">
+          <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-gray-200 to-gray-300">
             <div className="w-full h-full flex items-center justify-center">
-              <span className="text-gray-400 dark:text-gray-500">Image placeholder</span>
+              <span className="text-gray-400">Image placeholder</span>
             </div>
           </div>
         </div>
@@ -91,22 +101,22 @@ const BlogCard = ({
       viewport={{ once: true }}
       className="group"
     >
-      <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-        <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 relative overflow-hidden">
+      <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+        <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 relative overflow-hidden">
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-gray-400 dark:text-gray-500 text-sm">Blog thumbnail</span>
+            <span className="text-gray-400 text-sm">Blog thumbnail</span>
           </div>
           <div className="absolute top-4 right-4">
-            <span className="px-3 py-1 bg-white/90 dark:bg-gray-800/90 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400">
+            <span className="px-3 py-1 bg-white/90 rounded-full text-xs font-medium text-gray-600">
               Coming soon
             </span>
           </div>
         </div>
         <div className="p-6">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-[#0d9488] transition-colors">
+          <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#0d9488] transition-colors">
             {title}
           </h3>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4 text-base">
+          <p className="text-gray-600 leading-relaxed mb-4 text-base">
             {summary}
           </p>
           <button className="flex items-center space-x-2 text-[#0d9488] hover:text-[#0d9488]/80 font-medium group-hover:translate-x-1 transition-transform">
@@ -133,9 +143,9 @@ const SnippetsCarousel = ({ snippets }: { snippets: Array<{ id: string; caption:
             viewport={{ once: true }}
             className="flex-shrink-0 w-64 group"
           >
-            <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800">
+            <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-gray-200 to-gray-300">
               <div className="w-full h-full flex items-center justify-center">
-                <span className="text-gray-400 dark:text-gray-500 text-xs">Photo {index + 1}</span>
+                <span className="text-gray-400 text-xs">Photo {index + 1}</span>
               </div>
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                 <p className="text-white text-sm font-medium">{snippet.caption}</p>
@@ -151,15 +161,12 @@ const SnippetsCarousel = ({ snippets }: { snippets: Array<{ id: string; caption:
 const Highlights = () => {
   // Section 1: Photo Highlights
   const photos = [
-    { id: '1', src: '', caption: 'Maple Pass Loop' },
-    { id: '2', src: '', caption: 'North Cascades' },
-    { id: '3', src: '', caption: 'Seattle skyline' },
-    { id: '4', src: '', caption: 'Dallas sunset' },
-    { id: '5', src: '', caption: 'NYC streets' },
-    { id: '6', src: '', caption: 'Gym session' },
-    { id: '7', src: '', caption: 'Thai jasmine rice' },
-    { id: '8', src: '', caption: 'Coding desk setup' },
-    { id: '9', src: '', caption: 'Travel shot' },
+    { id: '1', src: '/TOYOTA.jpg', caption: 'Toyota internship' },
+    { id: '2', src: '/Q2.jpg', caption: 'Q2 Software internship' },
+    { id: '3', src: '/SWARMHACK.jpg', caption: 'Toyota Global Hackathon Internal' },
+    { id: '4', src: '/hiking.jpeg', caption: 'Mountain trail' },
+    { id: '5', src: '/sanyahiking.jpeg', caption: 'Hiking in the mountains' },
+    { id: '6', src: '/hackathon.jpg', caption: 'Hackathon weekend' },
   ]
 
   // Section 2: Life Chapters
@@ -238,8 +245,9 @@ const Highlights = () => {
   ]
 
   return (
-    <section className="min-h-screen bg-white dark:bg-gray-900 py-20">
-      <div className="container-custom max-w-7xl">
+    <section className="min-h-screen bg-white py-20 relative overflow-hidden">
+      <CodeBackground />
+      <div className="container-custom max-w-7xl relative z-10">
         {/* Page Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -247,23 +255,23 @@ const Highlights = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
             Highlights
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto font-light">
+          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-light">
             A visual journey through my life, work, and the things I care about
           </p>
         </motion.div>
 
         {/* Section 1: Photo Highlights Grid */}
         <motion.section
-          initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="mb-24"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
             Photo Highlights
           </h2>
           <PhotoGrid photos={photos} />
@@ -277,7 +285,7 @@ const Highlights = () => {
           viewport={{ once: true }}
           className="mb-24"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-16 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-16 text-center">
             Life Chapters
           </h2>
           <div className="space-y-24">
@@ -288,8 +296,8 @@ const Highlights = () => {
                 content={chapter.content}
                 imageSide={chapter.imageSide}
               />
-            ))}
-          </div>
+          ))}
+        </div>
         </motion.section>
 
         {/* Section 3: Mini Blog Cards */}
@@ -300,7 +308,7 @@ const Highlights = () => {
           viewport={{ once: true }}
           className="mb-24"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
             Writing
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -323,7 +331,7 @@ const Highlights = () => {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
             Snippets of My Life
           </h2>
           <SnippetsCarousel snippets={snippets} />
@@ -333,4 +341,4 @@ const Highlights = () => {
   )
 }
 
-export default Highlights
+export default Highlights 

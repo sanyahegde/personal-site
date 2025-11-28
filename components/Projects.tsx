@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { ExternalLink, Github, Play, Code } from 'lucide-react'
+import CodeBackground from './CodeBackground'
 
 const Projects = () => {
 
@@ -21,20 +22,6 @@ const Projects = () => {
       color: 'from-blue-500 to-cyan-500'
     },
     {
-      title: 'StockProphet',
-      category: 'Machine Learning & Cloud',
-      bullets: [
-        'Developed a classification model using the Random Forest algorithm to classify stock price movement (up or down) based on historical stock data, achieving 70% accuracy on test dataset using features like open, close, volume, and moving averages',
-        'Incorporated Reddit sentiment analysis to display real-time social media sentiment alongside predictions, analyzing over 1,000 posts per day for comprehensive stock tracking',
-        'Deployed the model via FastAPI on AWS Lambda, integrated with API Gateway to create a serverless REST API for stock movement predictions'
-      ],
-      technologies: ['Python', 'JavaScript', 'Pandas', 'Sci-Kit Learn', 'FastAPI', 'AWS'],
-      github: 'https://github.com/sanyahegde/stockprophet',
-      live: '#',
-      demo: '#',
-      color: 'from-purple-500 to-pink-500'
-    },
-    {
       title: 'NotionCards',
       category: 'Web Application',
       bullets: [
@@ -49,43 +36,57 @@ const Projects = () => {
       color: 'from-green-500 to-emerald-500'
     },
     {
-      title: 'TaskFlow',
-      category: 'Productivity Tool',
+      title: 'Bifocal',
+      category: 'Web Application',
       bullets: [
-        'Built a collaborative task management system with real-time synchronization using WebSockets, enabling teams to work together seamlessly on shared projects',
-        'Implemented drag-and-drop functionality with React DnD for intuitive task organization and priority management, improving user productivity by 40%',
-        'Created automated notification system using Node.js and Redis for task reminders and deadline alerts, reducing missed deadlines by 25%'
+        'Built a web application focused on improving user experience and functionality',
+        'Implemented modern UI/UX patterns and responsive design',
+        'Developed with scalable architecture and best practices'
       ],
-      technologies: ['React', 'Node.js', 'WebSockets', 'MongoDB', 'Redis'],
-      github: 'https://github.com/sanyahegde/taskflow',
+      technologies: ['React', 'Node.js', 'MongoDB'],
+      github: 'https://github.com/sanyahegde/bifocal',
+      live: '#',
+      demo: '#',
+      color: 'from-indigo-500 to-purple-500'
+    },
+    {
+      title: 'StockProphet',
+      category: 'Machine Learning & Cloud',
+      bullets: [
+        'Developed a classification model using the Random Forest algorithm to classify stock price movement (up or down) based on historical stock data, achieving 70% accuracy on test dataset using features like open, close, volume, and moving averages',
+        'Incorporated Reddit sentiment analysis to display real-time social media sentiment alongside predictions, analyzing over 1,000 posts per day for comprehensive stock tracking',
+        'Deployed the model via FastAPI on AWS Lambda, integrated with API Gateway to create a serverless REST API for stock movement predictions'
+      ],
+      technologies: ['Python', 'JavaScript', 'Pandas', 'Sci-Kit Learn', 'FastAPI', 'AWS'],
+      github: 'https://github.com/sanyahegde/stockprophet',
+      live: '#',
+      demo: '#',
+      color: 'from-purple-500 to-pink-500'
+    },
+    {
+      title: 'Comet Marketplace',
+      category: 'E-Commerce Platform',
+      bullets: [
+        'Developed a full-stack marketplace platform with user authentication and product management',
+        'Implemented secure payment processing and order management system',
+        'Built responsive design for seamless shopping experience across devices'
+      ],
+      technologies: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Stripe'],
+      github: 'https://github.com/sanyahegde/comet-marketplace',
       live: '#',
       demo: '#',
       color: 'from-orange-500 to-red-500'
     },
     {
-      title: 'DataViz Dashboard',
+      title: 'OneView',
       category: 'Data Visualization',
       bullets: [
-        'Developed an interactive analytics dashboard using D3.js and React to visualize complex datasets with real-time updates and customizable chart types',
-        'Integrated RESTful API with FastAPI backend to fetch and process large datasets efficiently, handling 10,000+ data points with sub-second response times',
-        'Implemented advanced filtering and export capabilities allowing users to generate custom reports in multiple formats (CSV, PDF, Excel)'
+        'Created a comprehensive data visualization and analytics platform',
+        'Implemented interactive dashboards with real-time data updates',
+        'Built advanced filtering and export capabilities for data analysis'
       ],
       technologies: ['React', 'D3.js', 'FastAPI', 'PostgreSQL', 'Python'],
-      github: 'https://github.com/sanyahegde/dataviz',
-      live: '#',
-      demo: '#',
-      color: 'from-indigo-500 to-blue-500'
-    },
-    {
-      title: 'API Gateway Service',
-      category: 'Backend Infrastructure',
-      bullets: [
-        'Designed and implemented a microservices API gateway using Spring Boot to route requests, handle authentication, and manage rate limiting across multiple services',
-        'Built comprehensive monitoring and logging system using ELK stack (Elasticsearch, Logstash, Kibana) for real-time system health tracking and debugging',
-        'Implemented OAuth 2.0 authentication flow with JWT tokens, securing API endpoints and reducing unauthorized access attempts by 90%'
-      ],
-      technologies: ['Java', 'Spring Boot', 'Docker', 'AWS', 'Elasticsearch'],
-      github: 'https://github.com/sanyahegde/api-gateway',
+      github: 'https://github.com/sanyahegde/oneview',
       live: '#',
       demo: '#',
       color: 'from-teal-500 to-cyan-500'
@@ -93,8 +94,9 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="section-padding bg-white dark:bg-gray-900">
-      <div className="container-custom max-w-7xl">
+    <section id="projects" className="section-padding bg-white dark:bg-gray-900 relative overflow-hidden">
+      <CodeBackground />
+      <div className="container-custom max-w-7xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -109,17 +111,14 @@ const Projects = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => {
-            // Break symmetry: alternate card heights and alignments
-            const isOdd = index % 2 === 0
-            return (
+          {projects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`group ${isOdd ? 'md:mt-0' : 'md:mt-8'}`}
+              className="group"
             >
               <div className="bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-teal-500/50 hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                 <div className="p-6 flex-1 flex flex-col">
@@ -192,8 +191,7 @@ const Projects = () => {
                 </div>
               </div>
             </motion.div>
-            )
-          })}
+          ))}
         </div>
       </div>
     </section>

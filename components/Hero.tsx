@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { Github, Linkedin, Mail, MapPin, Code } from 'lucide-react'
 import TypewriterTagline from './TypewriterTagline'
+import CodeBackground from './CodeBackground'
 
 const Hero = () => {
   const [currentCode, setCurrentCode] = useState(0)
@@ -48,8 +49,9 @@ function optimize() {
   ]
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 py-20">
-      <div className="container-custom max-w-6xl">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 py-20 relative overflow-hidden">
+      <CodeBackground />
+      <div className="container-custom max-w-6xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-start lg:items-center">
           {/* Left Column - Profile Content */}
         <motion.div
@@ -137,7 +139,7 @@ function optimize() {
                   <social.icon size={20} />
                 </a>
               ))}
-            </motion.div>
+          </motion.div>
 
             {/* Professional Summary */}
             <motion.p

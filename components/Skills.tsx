@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import CodeBackground from './CodeBackground'
 
 const Skills = () => {
 
@@ -14,8 +15,9 @@ const Skills = () => {
   ]
 
   return (
-    <section id="skills" className="section-padding bg-white dark:bg-gray-900">
-      <div className="container-custom max-w-6xl">
+    <section id="skills" className="section-padding bg-white dark:bg-gray-900 relative overflow-hidden">
+      <CodeBackground />
+      <div className="container-custom max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
