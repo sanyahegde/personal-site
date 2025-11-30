@@ -1,4 +1,4 @@
-Personal Portfolio
+#Personal Portfolio
 
 This is the codebase for my personal portfolio website — a place to share my work, projects, and a bit about who I am. I built it to have one central home for everything I’m working on and to experiment with modern frontend tools along the way.
 
