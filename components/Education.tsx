@@ -11,7 +11,21 @@ const Education = () => {
       school: 'University of Texas at Dallas',
       period: 'May 2026',
       location: 'Richardson, TX',
-      description: 'Honors: AES Scholarship. Relevant Courses: Artificial Intelligence, Machine Learning, Computer Architecture, Operating Systems, Advanced Algorithms and Data Structures',
+      honors: 'AES Scholarship',
+      relevantCourses: [
+        'Artificial Intelligence',
+        'Machine Learning',
+        'Computer Architecture',
+        'Operating Systems',
+        'Advanced Algorithms and Data Structures',
+        'Computer Networks',
+        'Software Project Planning and Management',
+        'Object Oriented Design',
+        'Linear Algebra',
+        'UNIX',
+        'Database Systems',
+        'Software Engineering'
+      ],
       gpa: null
     }
   ]
@@ -49,7 +63,7 @@ const Education = () => {
                 </h4>
               </div>
               
-              <div className="space-y-3 text-lg text-white/80 mb-4">
+              <div className="space-y-3 text-lg text-white/80 mb-6">
                 <div className="flex items-center">
                   <GraduationCap size={22} className="mr-3 text-teal-400" />
                   <span className="font-semibold">{edu.school}</span>
@@ -62,11 +76,33 @@ const Education = () => {
                   <MapPin size={22} className="mr-3 text-teal-400" />
                   {edu.location}
                 </div>
+                {edu.honors && (
+                  <div className="flex items-center">
+                    <span className="text-teal-400 font-semibold">Honors: </span>
+                    <span className="ml-2">{edu.honors}</span>
+                  </div>
+                )}
               </div>
               
-              <p className="text-white/80 text-base leading-relaxed">
-                {edu.description}
-              </p>
+              {/* Relevant Courses - Interactive Tiles */}
+              <div className="mb-4">
+                <h5 className="text-lg font-semibold text-white mb-5">Relevant Courses</h5>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                  {edu.relevantCourses.map((course, courseIndex) => (
+                    <motion.div
+                      key={course}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      transition={{ duration: 0.3, delay: courseIndex * 0.03 }}
+                      viewport={{ once: true }}
+                      className="px-4 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white/90 text-sm font-medium hover:bg-teal-500/20 hover:border-teal-400/50 transition-all duration-200 cursor-default text-center"
+                    >
+                      {course}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

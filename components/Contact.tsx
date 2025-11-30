@@ -82,58 +82,39 @@ const Contact = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">
+              <h3 className="text-3xl font-bold text-white mb-6">
                 Let's Connect
               </h3>
-              <p className="text-white/80 leading-relaxed mb-8">
+              <p className="text-white/80 leading-relaxed mb-8 text-lg">
                 Please reach out to discuss potential opportunities, or simply want to say hello. I'm always excited to hear from fellow developers and tech enthusiasts!
               </p>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {contactInfo.map((info, index) => (
-                <motion.div
+                <motion.a
                   key={info.title}
+                  href={info.link}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ scale: 1.02, x: 4 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 shadow-sm hover:shadow-md transition-all duration-200"
+                  className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-lg hover:shadow-xl hover:border-teal-400/50 transition-all duration-300 group"
                 >
-                  <div className="w-12 h-12 bg-teal-500/20 rounded-lg flex items-center justify-center">
-                    <info.icon size={24} className="text-teal-400" />
+                  <div className="w-14 h-14 bg-teal-500/20 rounded-xl flex items-center justify-center group-hover:bg-teal-500/30 transition-colors">
+                    <info.icon size={28} className="text-teal-400" />
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-white mb-1">
                       {info.title}
                     </h4>
-                    <a
-                      href={info.link}
-                      className="text-teal-400 hover:text-teal-300 transition-colors duration-200 font-medium"
-                    >
+                    <p className="text-teal-400 group-hover:text-teal-300 transition-colors duration-200 font-medium">
                       {info.value}
-                    </a>
+                    </p>
                   </div>
-                </motion.div>
+                </motion.a>
               ))}
-            </div>
-
-            {/* Contact Links */}
-            <div>
-              <h4 className="text-lg font-semibold text-white mb-4">
-                Connect
-              </h4>
-              <div className="space-y-2 text-white/80">
-                <a href="mailto:sanyahegde7@gmail.com" className="block hover:text-teal-400 transition-colors">
-                  sanyahegde7@gmail.com
-                </a>
-                <a href="https://www.linkedin.com/in/sanya-hegde-591327225/" target="_blank" rel="noopener noreferrer" className="block hover:text-teal-400 transition-colors">
-                  linkedin.com/in/sanya-hegde-591327225
-                </a>
-                <a href="https://github.com/sanyahegde" target="_blank" rel="noopener noreferrer" className="block hover:text-teal-400 transition-colors">
-                  github.com/sanyahegde
-                </a>
-              </div>
             </div>
           </motion.div>
 
@@ -143,7 +124,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 shadow-lg p-8"
+            className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg p-8 hover:shadow-xl transition-shadow duration-300"
           >
             {isSubmitted ? (
               <motion.div

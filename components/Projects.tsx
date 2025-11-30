@@ -10,11 +10,7 @@ const Projects = () => {
     {
       title: 'Trackr',
       category: 'Full Stack Development',
-      bullets: [
-        'Developed a social goal-tracking app designed to support 500+ users, allowing friends to connect, collaborate on shared objectives, and set goals with customizable privacy settings, driving user engagement through collaborative features',
-        'Built interactive dashboards using React with user-friendly, accessible UIs to track individual and group progress, integrating leaderboards designed to boost group participation in shared objectives',
-        'Integrated secure authentication using Auth0, allowing for social logins and user permissions management, reducing onboarding time and ensuring compliance with data security best practices'
-      ],
+      description: 'A social goal-tracking app where friends can share goals, compete on leaderboards, and actually stick to their New Year\'s resolutions (for once).',
       technologies: ['React', 'Node', 'Express', 'PostgreSQL'],
       github: 'https://github.com/sanyahegde/trackr-ios',
       live: '#',
@@ -24,11 +20,7 @@ const Projects = () => {
     {
       title: 'NotionCards',
       category: 'Web Application',
-      bullets: [
-        'Created a web app to convert Notion toggles into flashcards, enabling users to organize 200+ cards into customizable decks, reducing the time spent creating and managing flashcards by up to 50% compared to manual methods',
-        'Enhanced information retention by deploying a spaced repetition algorithm with an engaging interface, dynamically prioritizing flashcards based on user-rated difficulty',
-        'Implemented a study session feature using MongoDB to store user progress and session data, allowing students to set review schedules'
-      ],
+      description: 'Turned my Notion study notes into flashcards because manually making 200+ cards was getting old. Now with spaced repetition so I actually remember things.',
       technologies: ['React', 'FastAPI', 'MongoDB', 'Notion'],
       github: 'https://github.com/sanyahegde/notion-cards',
       live: '#',
@@ -38,12 +30,7 @@ const Projects = () => {
     {
       title: 'Bifocal',
       category: 'Web Application',
-      bullets: [
-        'HackAI overall winner - <a href="https://devpost.com/software/safeguard-t26z0j?_gl=1*thicsa*_gcl_au*MTQyOTY1MzAyNC4xNzU3OTYwNjM3*_ga*MTk1MjAwOTQ0OS4xNzQ1MDMyODY0*_ga_0YHJK3Y10M*czE3NjQzNjk5NDQkbzI1JGcxJHQxNzY0MzcwMTA2JGo2MCRsMCRoMA.." target="_blank" rel="noopener noreferrer" class="text-teal-600 hover:text-teal-700 underline">Devpost</a>',
-        'Built a web application focused on improving user experience and functionality',
-        'Implemented modern UI/UX patterns and responsive design',
-        'Developed with scalable architecture and best practices'
-      ],
+      description: 'Won HackAI overall winner - <a href="https://devpost.com/software/safeguard-t26z0j?_gl=1*thicsa*_gcl_au*MTQyOTY1MzAyNC4xNzU3OTYwNjM3*_ga*MTk1MjAwOTQ0OS4xNzQ1MDMyODY0*_ga_0YHJK3Y10M*czE3NjQzNjk5NDQkbzI1JGcxJHQxNzY0MzcwMTA2JGo2MCRsMCRoMA.." target="_blank" rel="noopener noreferrer" class="text-teal-400 hover:text-teal-300 underline">Devpost</a>. Built in 48 hours fueled by Red Bull and questionable life choices.',
       technologies: ['React', 'Node.js', 'MongoDB'],
       github: 'https://github.com/mounikasaka1/hackai',
       live: '#',
@@ -53,11 +40,7 @@ const Projects = () => {
     {
       title: 'StockProphet',
       category: 'Machine Learning & Cloud',
-      bullets: [
-        'Developed a classification model using the Random Forest algorithm to classify stock price movement (up or down) based on historical stock data, achieving 70% accuracy on test dataset using features like open, close, volume, and moving averages',
-        'Incorporated Reddit sentiment analysis to display real-time social media sentiment alongside predictions, analyzing over 1,000 posts per day for comprehensive stock tracking',
-        'Deployed the model via FastAPI on AWS Lambda, integrated with API Gateway to create a serverless REST API for stock movement predictions'
-      ],
+      description: 'Tried to predict stock prices using ML and Reddit sentiment. Spoiler: the market is still unpredictable, but at least the model works.',
       technologies: ['Python', 'JavaScript', 'Pandas', 'Sci-Kit Learn', 'FastAPI', 'AWS'],
       github: 'https://github.com/sanyahegde/stockprophet',
       live: '#',
@@ -67,11 +50,7 @@ const Projects = () => {
     {
       title: 'Comet Marketplace',
       category: 'E-Commerce Platform',
-      bullets: [
-        'Developed a full-stack marketplace platform with user authentication and product management',
-        'Implemented secure payment processing and order management system',
-        'Built responsive design for seamless shopping experience across devices'
-      ],
+      description: 'Built a full-stack marketplace because I wanted to understand how Stripe actually works. Turns out payment processing is harder than it looks.',
       technologies: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Stripe'],
       github: 'https://github.com/sanyahegde/CometMarketplace',
       live: '#',
@@ -81,11 +60,7 @@ const Projects = () => {
     {
       title: 'OneView',
       category: 'Data Visualization',
-      bullets: [
-        'Created a comprehensive data visualization and analytics platform',
-        'Implemented interactive dashboards with real-time data updates',
-        'Built advanced filtering and export capabilities for data analysis'
-      ],
+      description: 'Made data actually look good with interactive dashboards. Because spreadsheets are boring and charts should be fun.',
       technologies: ['React', 'D3.js', 'FastAPI', 'PostgreSQL', 'Python'],
       github: 'https://github.com/sanyahegde/oneview',
       live: '#',
@@ -121,36 +96,31 @@ const Projects = () => {
               viewport={{ once: true }}
               className="group"
             >
-              <div className="bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-teal-500/50 hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
-                <div className="p-6 flex-1 flex flex-col">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl border-2 border-white/20 overflow-hidden hover:border-teal-400/50 hover:shadow-2xl transition-all duration-300 h-full flex flex-col group-hover:bg-white/15">
+                <div className="p-8 flex-1 flex flex-col">
                   {/* Category */}
-                  <p className="text-xs text-white/70 mb-2 font-semibold uppercase tracking-wider">
+                  <p className="text-xs text-teal-400 mb-3 font-semibold uppercase tracking-wider">
                     {project.category}
                   </p>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-teal-400 transition-colors">
+                  <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-teal-400 transition-colors">
                 {project.title}
               </h3>
               
-                  {/* One-sentence summary instead of long bullets */}
-                  <div className="text-white/80 mb-4 leading-relaxed text-base flex-1" dangerouslySetInnerHTML={{ __html: project.bullets[0] }} />
+                  {/* Description */}
+                  <div className="text-white/80 mb-6 leading-relaxed text-base flex-1" dangerouslySetInnerHTML={{ __html: project.description }} />
 
-                  {/* Technologies - Compact */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.slice(0, 4).map((tech) => (
+                  {/* Technologies */}
+              <div className="flex flex-wrap gap-2 mb-6">
+                    {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                        className="px-2.5 py-1 bg-white/20 text-white/90 rounded text-xs font-medium border border-white/30"
+                        className="px-3 py-1.5 bg-teal-500/20 text-teal-300 rounded-md text-xs font-medium border border-teal-400/30 hover:bg-teal-500/30 transition-colors"
                   >
                     {tech}
                   </span>
                 ))}
-                    {project.technologies.length > 4 && (
-                      <span className="px-2.5 py-1 text-white/60 text-xs">
-                        +{project.technologies.length - 4} more
-                      </span>
-                    )}
               </div>
 
                   {/* Action Buttons */}

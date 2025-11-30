@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Download } from 'lucide-react'
 import CodeBackground from './CodeBackground'
 
 const About = () => {
@@ -21,8 +20,8 @@ const About = () => {
           </h2>
           <div className="h-1 w-24 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full mb-6"></div>
           
-          <div className="space-y-6 text-white/80 leading-relaxed mb-8">
-            <p className="text-lg">
+          <div className="space-y-6 text-white/80 leading-relaxed mb-8 text-lg">
+            <p>
               I'm a Computer Science student passionate about building innovative software solutions 
               and solving complex problems. I enjoy working on full-stack applications, exploring 
               new technologies, and contributing to open-source projects.
@@ -41,20 +40,6 @@ const About = () => {
               seeking opportunities to work on challenging projects and collaborate with talented teams.
             </p>
             </div>
-
-          {/* Download Resume */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            className="mt-8"
-            >
-            <button className="inline-flex items-center space-x-2 px-6 py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-all duration-200 font-semibold hover:scale-105 shadow-lg hover:shadow-xl">
-              <Download size={20} />
-              <span>Download Resume</span>
-              </button>
-            </motion.div>
           </motion.div>
       </div>
     </section>

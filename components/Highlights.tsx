@@ -43,46 +43,6 @@ const PhotoGrid = ({ photos }: { photos: Array<{ id: string; src: string; captio
   )
 }
 
-// Life Chapter Section Component
-const LifeChapterSection = ({ 
-  title, 
-  content, 
-  imageSide = 'right' 
-}: { 
-  title: string
-  content: string
-  imageSide?: 'left' | 'right'
-}) => {
-  return (
-    <motion.section
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="mb-16"
-    >
-      <div className={`flex flex-col ${imageSide === 'right' ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-center`}>
-        <div className="flex-1">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            {title}
-          </h2>
-          <div className="h-1 w-20 bg-[#0d9488] mb-6"></div>
-          <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
-            {content}
-          </p>
-        </div>
-        <div className="flex-1 w-full">
-          <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-gray-200 to-gray-300">
-            <div className="w-full h-full flex items-center justify-center">
-              <span className="text-gray-400">Image placeholder</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </motion.section>
-  )
-}
-
 // Blog Card Component
 const BlogCard = ({ 
   title, 
@@ -129,35 +89,6 @@ const BlogCard = ({
   )
 }
 
-// Carousel Component
-const SnippetsCarousel = ({ snippets }: { snippets: Array<{ id: string; caption: string }> }) => {
-  return (
-    <div className="overflow-x-auto scrollbar-hide pb-4 -mx-4 px-4">
-      <div className="flex space-x-4">
-        {snippets.map((snippet, index) => (
-          <motion.div
-            key={snippet.id}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className="flex-shrink-0 w-64 group"
-          >
-            <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-gray-200 to-gray-300">
-              <div className="w-full h-full flex items-center justify-center">
-                <span className="text-gray-400 text-xs">Photo {index + 1}</span>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                <p className="text-white text-sm font-medium">{snippet.caption}</p>
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
 const Highlights = () => {
   // Section 1: Photo Highlights
   const photos = [
@@ -169,70 +100,7 @@ const Highlights = () => {
     { id: '6', src: '/hackathon.jpg', caption: 'Hackathon weekend' },
   ]
 
-  // Section 2: Life Chapters
-  const lifeChapters = [
-    {
-      title: 'Hiking Era',
-      content: 'Maple Pass was the hike that made me realize I actually enjoy suffering. I also beat my group by 1.5 hours by accident. Oops. The North Cascades became my favorite place on earth, no competition. Now I\'m training for Mount Baker and Rainier—because apparently I like challenging myself in the most physical way possible.',
-      imageSide: 'right' as const
-    },
-    {
-      title: 'The Seattle–Dallas–NYC Shuffle',
-      content: 'I bounce between these three cities like I\'m collecting experiences. Seattle for the mountains and coffee, Dallas for family and warmth, NYC for the energy and food. My favorite? Depends on the food that week. It\'s chaotic, but so am I.',
-      imageSide: 'left' as const
-    },
-    {
-      title: 'Engineering Journey',
-      content: 'Started with curiosity, stayed for the problem-solving. From debugging WebSockets at 2am to building production systems that actually matter. Every bug teaches me something, every feature ships with a story. This is what I love doing.',
-      imageSide: 'right' as const
-    },
-    {
-      title: 'Hackathon Weekends',
-      content: 'Thriving on Red Bull and questionable ideas since freshman year. Weekend coding sprints are my happy place. There\'s something beautiful about turning chaos into something that works, even if it\'s just for 48 hours.',
-      imageSide: 'left' as const
-    },
-    {
-      title: 'Cooking Era',
-      content: 'Currently making Thai jasmine rice like it\'s a personality trait. Costco chicken era continues. There\'s something meditative about cooking after a long day of coding—simple, satisfying, and delicious.',
-      imageSide: 'right' as const
-    },
-    {
-      title: 'Fitness & Mobility Training',
-      content: 'Currently in my "getting ready for Mount Baker" phase. Lately I\'m in my mobility era because mountain goals are real and my shoulders complain. Ask me again in two months when I\'m actually ready.',
-      imageSide: 'left' as const
-    },
-    {
-      title: 'Why I Build Things',
-      content: 'Because there\'s something magical about turning ideas into reality. Because I want my components to stop yelling at me. Because building things that matter is what makes me feel alive. Every project is a story, every line of code is a choice.',
-      imageSide: 'right' as const
-    }
-  ]
-
-  // Section 3: Projects
-  const projects = [
-    {
-      title: 'Diving into 3D Modeling',
-      summary: 'Exploring 3D modeling and design through hands-on projects and experimentation.',
-      link: 'https://youtu.be/uyoE0Nef5vQ'
-    },
-    {
-      title: 'NotionCards',
-      summary: 'A web app to convert Notion toggles into flashcards with spaced repetition algorithm.',
-      link: 'https://github.com/sanyahegde/notion-cards'
-    },
-    {
-      title: 'Comet Marketplace',
-      summary: 'A full-stack marketplace platform with user authentication and product management.',
-      link: 'https://github.com/sanyahegde/CometMarketplace'
-    },
-    {
-      title: 'OneView',
-      summary: 'A comprehensive data visualization and analytics platform with interactive dashboards.',
-      link: 'https://github.com/sanyahegde/oneview'
-    }
-  ]
-
-  // Section 4: Blog Posts
+  // Section 2: Blog Posts
   const blogPosts = [
     {
       title: 'How I built NotionCards',
@@ -254,18 +122,6 @@ const Highlights = () => {
       summary: 'Training for a mountain isn\'t just physical—it\'s mental, it\'s planning, it\'s learning to respect the mountain. Here\'s what I\'m doing to get ready for 2025.',
       slug: 'mount-baker-prep'
     }
-  ]
-
-  // Section 4: Snippets Carousel
-  const snippets = [
-    { id: '1', caption: 'Maple Pass: my Roman Empire' },
-    { id: '2', caption: 'Seattle sunsets after shipping a backend feature' },
-    { id: '3', caption: 'Thai jasmine rice supremacy' },
-    { id: '4', caption: 'Hackathon weekend chaos' },
-    { id: '5', caption: 'Training for Mount Baker' },
-    { id: '6', caption: 'NYC energy' },
-    { id: '7', caption: 'Dallas warmth' },
-    { id: '8', caption: 'Coding late nights' }
   ]
 
   return (
@@ -301,75 +157,7 @@ const Highlights = () => {
           <PhotoGrid photos={photos} />
         </motion.section>
 
-        {/* Section 2: Life Chapters */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-24"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-16 text-center">
-            Life Chapters
-          </h2>
-          <div className="space-y-24">
-            {lifeChapters.map((chapter, index) => (
-              <LifeChapterSection
-                key={chapter.title}
-                title={chapter.title}
-                content={chapter.content}
-                imageSide={chapter.imageSide}
-              />
-          ))}
-        </div>
-        </motion.section>
-
-        {/* Section 3: Projects */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-24"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
-            Projects
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="p-6">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#0d9488] transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed mb-4 text-base">
-                      {project.summary}
-                    </p>
-                    <div className="flex items-center space-x-2 text-[#0d9488] hover:text-[#0d9488]/80 font-medium group-hover:translate-x-1 transition-transform">
-                      <span>View project</span>
-                      <ArrowRight size={16} />
-                    </div>
-                  </div>
-                </a>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Section 4: Mini Blog Cards */}
+        {/* Section 2: Mini Blog Cards */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -392,19 +180,6 @@ const Highlights = () => {
           </div>
         </motion.section>
 
-        {/* Section 5: Snippets Carousel */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
-            Snippets of My Life
-          </h2>
-          <SnippetsCarousel snippets={snippets} />
-        </motion.section>
       </div>
     </section>
   )
