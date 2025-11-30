@@ -1,4 +1,4 @@
-'use client'
+oj'use client'
 
 import { useState, useEffect } from 'react'
 import { Menu, X, Home } from 'lucide-react'
