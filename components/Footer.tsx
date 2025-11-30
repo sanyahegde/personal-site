@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { Heart, ArrowUp, Github, Linkedin, Mail } from 'lucide-react'
+import { ArrowUp, Github, Linkedin, Mail } from 'lucide-react'
 
 const Footer = () => {
   const [showScrollTop, setShowScrollTop] = useState(false)
@@ -20,7 +20,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-[#0a192f] text-white py-12 relative">
+    <footer className="bg-gray-900 dark:bg-[#0a192f] text-white py-12 relative">
       <div className="container-custom">
         {/* Reach Out Section */}
         <div className="mb-12 text-center">
@@ -127,8 +127,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="text-white/60 text-sm mb-4 md:mb-0"
           >
-            © 2024 Sanya Hegde. All rights reserved. Made with{' '}
-            <Heart size={16} className="inline text-red-500" /> and lots of coffee.
+            © 2024 Sanya Hegde. All rights reserved.
           </motion.p>
           
           {showScrollTop && (

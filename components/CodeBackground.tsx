@@ -29,21 +29,21 @@ const CodeBackground = () => {
             key={`left-${i}`}
             initial={{ opacity: 0 }}
             animate={{ 
-              opacity: [0, 0.3, 0.15, 0.3],
+              opacity: [0, 0.4, 0.2, 0.4],
               y: [0, -20, -40, -20, 0]
             }}
             transition={{
-              duration: 20 + i * 3,
+              duration: 8 + i * 1.5,
               repeat: Infinity,
-              delay: i * 2,
+              delay: i * 0.8,
               ease: "easeInOut"
             }}
             className="absolute"
             style={{
               left: `${5 + i * 2}%`,
               top: `${10 + i * 15}%`,
-              color: i % 2 === 0 ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.3)',
-              textShadow: '0 0 8px currentColor',
+              color: i % 2 === 0 ? 'rgba(13, 148, 136, 0.4)' : 'rgba(13, 148, 136, 0.35)',
+              textShadow: '0 0 6px currentColor',
               filter: 'blur(0.3px)'
             }}
           >
@@ -59,21 +59,21 @@ const CodeBackground = () => {
             key={`right-${i}`}
             initial={{ opacity: 0 }}
             animate={{ 
-              opacity: [0, 0.3, 0.15, 0.3],
+              opacity: [0, 0.4, 0.2, 0.4],
               y: [0, -25, -50, -25, 0]
             }}
             transition={{
-              duration: 18 + i * 3,
+              duration: 7 + i * 1.5,
               repeat: Infinity,
-              delay: i * 2.5,
+              delay: i * 1,
               ease: "easeInOut"
             }}
             className="absolute"
             style={{
               right: `${5 + i * 2}%`,
               top: `${15 + i * 18}%`,
-              color: i % 2 === 0 ? 'rgba(255, 255, 255, 0.3)' : 'rgba(255, 255, 255, 0.4)',
-              textShadow: '0 0 8px currentColor',
+              color: i % 2 === 0 ? 'rgba(13, 148, 136, 0.4)' : 'rgba(13, 148, 136, 0.35)',
+              textShadow: '0 0 6px currentColor',
               filter: 'blur(0.3px)'
             }}
           >
@@ -88,22 +88,22 @@ const CodeBackground = () => {
           key={`float-${i}`}
           initial={{ opacity: 0 }}
           animate={{
-            opacity: [0, 0.25, 0.1, 0.25],
+            opacity: [0, 0.35, 0.15, 0.35],
             y: [0, -30, -60, -30, 0],
             x: [0, 15, -15, 0]
           }}
           transition={{
-            duration: 25 + i * 4,
+            duration: 10 + i * 2,
             repeat: Infinity,
-            delay: i * 5,
+            delay: i * 2,
             ease: "easeInOut"
           }}
           className="absolute font-mono text-xs"
           style={{
             left: i % 2 === 0 ? `${8 + i * 3}%` : `${92 - i * 3}%`,
             top: `${20 + i * 25}%`,
-            color: i % 2 === 0 ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.3)',
-            textShadow: '0 0 8px currentColor',
+            color: i % 2 === 0 ? 'rgba(13, 148, 136, 0.4)' : 'rgba(13, 148, 136, 0.35)',
+            textShadow: '0 0 6px currentColor',
             filter: 'blur(0.3px)'
           }}
         >

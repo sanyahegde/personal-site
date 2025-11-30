@@ -1,17 +1,30 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { ExternalLink, Github, Play, Code } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
+import { ExternalLink, Github, Play, Code, X } from 'lucide-react'
 import CodeBackground from './CodeBackground'
 
 const Projects = () => {
+  const [videoModalOpen, setVideoModalOpen] = useState(false)
+  const [videoUrl, setVideoUrl] = useState('')
+
+  const openVideoModal = (url: string) => {
+    setVideoUrl(url)
+    setVideoModalOpen(true)
+  }
+
+  const closeVideoModal = () => {
+    setVideoModalOpen(false)
+    setVideoUrl('')
+  }
 
   const projects = [
     {
       title: 'Trackr',
-      category: 'Full Stack Development',
-      description: 'A social goal-tracking app where friends can share goals, compete on leaderboards, and actually stick to their New Year\'s resolutions (for once).',
-      technologies: ['React', 'Node', 'Express', 'PostgreSQL'],
+      category: 'iOS Application',
+      description: 'A social goal-tracking iOS app where friends can share goals, compete on leaderboards, and track progress together.',
+      technologies: ['Swift', 'SwiftUI', 'Go'],
       github: 'https://github.com/sanyahegde/trackr-ios',
       live: '#',
       demo: '#',
@@ -29,12 +42,13 @@ const Projects = () => {
     },
     {
       title: 'Bifocal',
-      category: 'Web Application',
-      description: 'Won HackAI overall winner - <a href="https://devpost.com/software/safeguard-t26z0j?_gl=1*thicsa*_gcl_au*MTQyOTY1MzAyNC4xNzU3OTYwNjM3*_ga*MTk1MjAwOTQ0OS4xNzQ1MDMyODY0*_ga_0YHJK3Y10M*czE3NjQzNjk5NDQkbzI1JGcxJHQxNzY0MzcwMTA2JGo2MCRsMCRoMA.." target="_blank" rel="noopener noreferrer" class="text-teal-400 hover:text-teal-300 underline">Devpost</a>. Built in 48 hours fueled by Red Bull and questionable life choices.',
-      technologies: ['React', 'Node.js', 'MongoDB'],
+      category: 'Full Stack + ML/AI Application',
+      description: 'HackAI 2025 overall winner - <a href="https://devpost.com/software/safeguard-t26z0j?_gl=1*thicsa*_gcl_au*MTQyOTY1MzAyNC4xNzU3OTYwNjM3*_ga*MTk1MjAwOTQ0OS4xNzQ1MDMyODY0*_ga_0YHJK3Y10M*czE3NjQzNjk5NDQkbzI1JGcxJHQxNzY0MzcwMTA2JGo2MCRsMCRoMA.." target="_blank" rel="noopener noreferrer" class="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 underline">Devpost</a>. A responsive web platform that uses RAG and NLP to analyze message patterns for behavioral insights and risk assessment.',
+      technologies: ['React', 'TypeScript', 'RAG', 'NLP', 'Machine Learning', 'DSM-5', 'MCP'],
       github: 'https://github.com/mounikasaka1/hackai',
       live: '#',
       demo: '#',
+      video: 'https://youtu.be/U_1Hpi4J-AQ',
       color: 'from-indigo-500 to-purple-500'
     },
     {
@@ -58,19 +72,20 @@ const Projects = () => {
       color: 'from-orange-500 to-red-500'
     },
     {
-      title: 'OneView',
-      category: 'Data Visualization',
-      description: 'Made data actually look good with interactive dashboards. Because spreadsheets are boring and charts should be fun.',
-      technologies: ['React', 'D3.js', 'FastAPI', 'PostgreSQL', 'Python'],
-      github: 'https://github.com/sanyahegde/oneview',
+      title: 'VRCarAid',
+      category: 'VR + 3D Design',
+      description: 'WEHack Winner (Toyota Track). A VR/AR learning tool built in 48 hours. Turned a Toyota Camry interior into an interactive VR experience using Blender, 3D modeling, and Reality Composer. Designed an accessible driving-simulation tool that helps new drivers practice controls, orientation, and safety concepts in a portable virtual environment.',
+      technologies: ['3D Modeling', 'Animation', 'Augmented Reality', 'Blender', 'Figma', 'Reality Composer', 'Reality Converter', 'UI/UX'],
+      github: '#',
       live: '#',
       demo: '#',
-      color: 'from-teal-500 to-cyan-500'
+      video: 'https://youtu.be/uyoE0Nef5vQ',
+      color: 'from-purple-500 to-indigo-500'
     }
   ]
 
   return (
-    <section id="projects" className="section-padding bg-[#0a192f] dark:bg-[#0a192f] relative overflow-hidden py-20">
+    <section id="projects" className="section-padding bg-white dark:bg-[#0a192f] relative overflow-hidden py-20">
       <CodeBackground />
       <div className="container-custom max-w-7xl relative z-10">
         <motion.div
@@ -78,79 +93,83 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3">
             Projects
           </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full"></div>
+          <div className="h-1.5 w-32 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -12, scale: 1.03 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               className="group"
             >
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl border-2 border-white/20 overflow-hidden hover:border-teal-400/50 hover:shadow-2xl transition-all duration-300 h-full flex flex-col group-hover:bg-white/15">
-                <div className="p-8 flex-1 flex flex-col">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl border-4 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-teal-500 dark:hover:border-teal-500 hover:shadow-3xl transition-all duration-300 h-full flex flex-col relative">
+                {/* Gradient accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-teal-500 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div className="p-10 flex-1 flex flex-col">
                   {/* Category */}
-                  <p className="text-xs text-teal-400 mb-3 font-semibold uppercase tracking-wider">
+                  <p className="text-sm text-teal-600 dark:text-teal-400 mb-4 font-bold uppercase tracking-wider">
                     {project.category}
                   </p>
 
                   {/* Title */}
-                  <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-teal-400 transition-colors">
-                {project.title}
-              </h3>
+                  <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                    {project.title}
+                  </h3>
               
                   {/* Description */}
-                  <div className="text-white/80 mb-6 leading-relaxed text-base flex-1" dangerouslySetInnerHTML={{ __html: project.description }} />
+                  <div className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed text-lg flex-1" dangerouslySetInnerHTML={{ __html: project.description }} />
 
                   {/* Technologies */}
-              <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-3 mb-8">
                     {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                        className="px-3 py-1.5 bg-teal-500/20 text-teal-300 rounded-md text-xs font-medium border border-teal-400/30 hover:bg-teal-500/30 transition-colors"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+                      <span
+                        key={tech}
+                        className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg text-sm font-semibold border-2 border-gray-200 dark:border-gray-600 hover:bg-teal-50 dark:hover:bg-teal-900/30 hover:border-teal-500 dark:hover:border-teal-500 transition-all duration-200"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-2 pt-4 border-t border-white/20">
+                  <div className="flex gap-3 pt-6 border-t-2 border-gray-200 dark:border-gray-700">
+                    {project.github && project.github !== '#' && (
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center space-x-2 px-4 py-2.5 bg-white/20 text-white rounded-lg hover:bg-white/30 transition-all duration-200 text-sm font-semibold hover:scale-105"
+                        className="flex-1 flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-900 dark:bg-white/20 text-white rounded-lg hover:bg-teal-600 dark:hover:bg-white/30 transition-all duration-200 text-sm font-semibold hover:scale-105"
                 >
                   <Github size={16} />
                   <span>Code</span>
                 </a>
-                    {project.title === 'Bifocal' && project.demo && project.demo !== '#' && (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center space-x-2 px-4 py-2.5 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-all duration-200 text-sm font-semibold hover:scale-105"
+                    )}
+                    {project.video && (
+                      <button
+                        onClick={() => openVideoModal(project.video!)}
+                        className="flex-1 flex items-center justify-center space-x-2 px-4 py-2.5 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-200 text-sm font-semibold hover:scale-105"
                       >
                         <Play size={16} />
-                        <span>Demo</span>
-                      </a>
+                        <span>Watch</span>
+                      </button>
                     )}
                     {project.live && project.live !== '#' && (
                 <a
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center space-x-2 px-4 py-2.5 bg-white/10 border-2 border-white/30 text-white rounded-lg hover:border-white/50 hover:bg-white/20 transition-all duration-200 text-sm font-semibold"
+                        className="flex-1 flex items-center justify-center space-x-2 px-4 py-2.5 bg-white dark:bg-white/10 border-2 border-teal-500/30 dark:border-white/30 text-teal-600 dark:text-white rounded-lg hover:border-teal-500 dark:hover:border-white/50 hover:bg-teal-50 dark:hover:bg-white/20 transition-all duration-200 text-sm font-semibold"
                 >
                         <ExternalLink size={16} />
                   <span>Live</span>
@@ -162,7 +181,58 @@ const Projects = () => {
             </motion.div>
           ))}
         </div>
-      </div>
+        </div>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {videoModalOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeVideoModal}
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            >
+              {/* Modal Content */}
+        <motion.div
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                onClick={(e) => e.stopPropagation()}
+                className="bg-white dark:bg-gray-900 rounded-xl shadow-2xl max-w-4xl w-full relative"
+              >
+                {/* Close Button */}
+                <button
+                  onClick={closeVideoModal}
+                  className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10"
+                >
+                  <X size={24} />
+                </button>
+                
+                {/* Video Container */}
+                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    src={videoUrl.replace('youtu.be/', 'youtube.com/embed/').replace('watch?v=', 'embed/')}
+                    title="Project Video"
+                    className="absolute top-0 left-0 w-full h-full rounded-t-xl"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                
+                {/* Modal Footer */}
+                <div className="p-6 border-t border-gray-200 dark:border-gray-700">
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                    Diving into 3D modeling - won WEHack Track
+                  </p>
+                </div>
+              </motion.div>
+        </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </section>
   )
 }
