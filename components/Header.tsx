@@ -1,6 +1,6 @@
-oj'use client'
+'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react' 
 import { Menu, X, Home } from 'lucide-react'
 import { useRouter, usePathname } from 'next/navigation'
 
@@ -85,20 +85,20 @@ const Header = () => {
                 const sectionId = item.href.replace('#', '')
                 const isActive = activeSection === sectionId || (sectionId === 'home' && activeSection === 'home')
                 return (
-                  <button
-                    key={item.name}
-                    onClick={() => scrollToSection(item.href)}
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
                     className={`relative transition-colors duration-200 font-medium ${
                       isActive
                         ? 'text-teal-600 dark:text-teal-400'
                         : 'text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400'
                     }`}
-                  >
-                    {item.name}
+                >
+                  {item.name}
                     {isActive && (
                       <span className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-teal-500 to-emerald-500" />
                     )}
-                  </button>
+                </button>
                 )
               })
             ) : (
@@ -140,17 +140,17 @@ const Header = () => {
                   const sectionId = item.href.replace('#', '')
                   const isActive = activeSection === sectionId || (sectionId === 'home' && activeSection === 'home')
                   return (
-                    <button
-                      key={item.name}
-                      onClick={() => scrollToSection(item.href)}
+                  <button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.href)}
                       className={`text-left py-3 px-4 rounded-lg transition-all duration-200 font-medium ${
                         isActive
                           ? 'text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-900/20'
                           : 'text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-gray-50 dark:hover:bg-gray-800'
                       }`}
-                    >
-                      {item.name}
-                    </button>
+                  >
+                    {item.name}
+                  </button>
                   )
                 })
               ) : (
