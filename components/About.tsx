@@ -6,7 +6,7 @@ import CodeBackground from './CodeBackground'
 
 const About = () => {
   return (
-    <section id="about" className="section-padding bg-white dark:bg-gray-900 relative overflow-hidden">
+    <section id="about" className="section-padding bg-[#0a192f] dark:bg-[#0a192f] relative overflow-hidden">
       <CodeBackground />
       <div className="container-custom max-w-5xl relative z-10">
         <motion.div
@@ -16,12 +16,12 @@ const About = () => {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
             About
           </h2>
           <div className="h-1 w-24 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full mb-6"></div>
           
-          <div className="space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+          <div className="space-y-6 text-white/80 leading-relaxed mb-8">
             <p className="text-lg">
               I'm a Computer Science student passionate about building innovative software solutions 
               and solving complex problems. I enjoy working on full-stack applications, exploring 

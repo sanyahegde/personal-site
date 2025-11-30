@@ -63,7 +63,7 @@ const Header = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg' 
+          ? 'bg-[#0a192f]/90 backdrop-blur-md shadow-lg' 
           : 'bg-transparent'
       }`}
     >
@@ -90,8 +90,8 @@ const Header = () => {
                     onClick={() => scrollToSection(item.href)}
                     className={`relative transition-colors duration-200 font-medium ${
                       isActive
-                        ? 'text-teal-600 dark:text-teal-400'
-                        : 'text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400'
+                        ? 'text-teal-400'
+                        : 'text-white/80 hover:text-teal-400'
                     }`}
                   >
                     {item.name}
@@ -106,14 +106,14 @@ const Header = () => {
               <>
                 <button
                   onClick={goHome}
-                  className="text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors duration-200 font-medium flex items-center space-x-2"
+                  className="text-white/80 hover:text-teal-400 transition-colors duration-200 font-medium flex items-center space-x-2"
                 >
                   <Home size={16} />
                   <span>Home</span>
                 </button>
                 <button
                   onClick={() => scrollToSection('#highlights')}
-                    className="text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors duration-200 font-medium"
+                    className="text-white/80 hover:text-teal-400 transition-colors duration-200 font-medium"
                 >
                   Highlights
                 </button>
@@ -132,7 +132,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-900 shadow-lg border-t border-gray-100 dark:border-gray-700">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-[#0a192f] shadow-lg border-t border-white/20">
             <nav className="flex flex-col space-y-1 p-4">
               {pathname === '/' ? (
                 // Show regular navigation on main page
@@ -145,8 +145,8 @@ const Header = () => {
                       onClick={() => scrollToSection(item.href)}
                       className={`text-left py-3 px-4 rounded-lg transition-all duration-200 font-medium ${
                         isActive
-                          ? 'text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-900/20'
-                          : 'text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                          ? 'text-teal-400 bg-teal-500/20'
+                          : 'text-white/80 hover:text-teal-400 hover:bg-white/10'
                       }`}
                     >
                       {item.name}
@@ -158,14 +158,14 @@ const Header = () => {
                 <>
                   <button
                     onClick={goHome}
-                    className="text-left py-3 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-all duration-200 font-medium flex items-center space-x-2"
+                    className="text-left py-3 px-4 text-white/80 hover:text-teal-400 hover:bg-white/10 rounded-lg transition-all duration-200 font-medium flex items-center space-x-2"
                   >
                     <Home size={16} />
                     <span>Home</span>
                   </button>
                   <button
                     onClick={() => scrollToSection('#highlights')}
-                    className="text-left py-3 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-800 rounded-lg transition-all duration-200 font-medium"
+                    className="text-left py-3 px-4 text-white/80 hover:text-teal-400 hover:bg-white/10 rounded-lg transition-all duration-200 font-medium"
                   >
                     Highlights
                   </button>

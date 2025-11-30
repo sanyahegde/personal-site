@@ -39,7 +39,7 @@ const Experience = () => {
       school: 'University of Texas at Dallas',
       period: 'May 2026',
       location: 'Richardson, TX',
-      description: 'Honors: AES Scholarship. Relevant Courses: Data Structures & Algorithms, Computer Architecture, Linear Algebra, Systems Programming in UNIX.',
+      description: 'Honors: AES Scholarship. Relevant Courses: Artificial Intelligence, Machine Learning, Computer Architecture, Operating Systems, Advanced Algorithms and Data Structures',
       gpa: null
     }
   ]

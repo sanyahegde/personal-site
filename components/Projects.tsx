@@ -16,7 +16,7 @@ const Projects = () => {
         'Integrated secure authentication using Auth0, allowing for social logins and user permissions management, reducing onboarding time and ensuring compliance with data security best practices'
       ],
       technologies: ['React', 'Node', 'Express', 'PostgreSQL'],
-      github: 'https://github.com/sanyahegde/trackr',
+      github: 'https://github.com/sanyahegde/trackr-ios',
       live: '#',
       demo: '#',
       color: 'from-blue-500 to-cyan-500'
@@ -30,7 +30,7 @@ const Projects = () => {
         'Implemented a study session feature using MongoDB to store user progress and session data, allowing students to set review schedules'
       ],
       technologies: ['React', 'FastAPI', 'MongoDB', 'Notion'],
-      github: 'https://github.com/sanyahegde/notioncards',
+      github: 'https://github.com/sanyahegde/notion-cards',
       live: '#',
       demo: '#',
       color: 'from-green-500 to-emerald-500'
@@ -39,12 +39,13 @@ const Projects = () => {
       title: 'Bifocal',
       category: 'Web Application',
       bullets: [
+        'HackAI overall winner - <a href="https://devpost.com/software/safeguard-t26z0j?_gl=1*thicsa*_gcl_au*MTQyOTY1MzAyNC4xNzU3OTYwNjM3*_ga*MTk1MjAwOTQ0OS4xNzQ1MDMyODY0*_ga_0YHJK3Y10M*czE3NjQzNjk5NDQkbzI1JGcxJHQxNzY0MzcwMTA2JGo2MCRsMCRoMA.." target="_blank" rel="noopener noreferrer" class="text-teal-600 hover:text-teal-700 underline">Devpost</a>',
         'Built a web application focused on improving user experience and functionality',
         'Implemented modern UI/UX patterns and responsive design',
         'Developed with scalable architecture and best practices'
       ],
       technologies: ['React', 'Node.js', 'MongoDB'],
-      github: 'https://github.com/sanyahegde/bifocal',
+      github: 'https://github.com/mounikasaka1/hackai',
       live: '#',
       demo: '#',
       color: 'from-indigo-500 to-purple-500'
@@ -72,7 +73,7 @@ const Projects = () => {
         'Built responsive design for seamless shopping experience across devices'
       ],
       technologies: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Stripe'],
-      github: 'https://github.com/sanyahegde/comet-marketplace',
+      github: 'https://github.com/sanyahegde/CometMarketplace',
       live: '#',
       demo: '#',
       color: 'from-orange-500 to-red-500'
@@ -94,7 +95,7 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="section-padding bg-white dark:bg-gray-900 relative overflow-hidden">
+    <section id="projects" className="section-padding bg-[#0a192f] dark:bg-[#0a192f] relative overflow-hidden py-20">
       <CodeBackground />
       <div className="container-custom max-w-7xl relative z-10">
         <motion.div
@@ -104,13 +105,13 @@ const Projects = () => {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">
             Projects
           </h2>
           <div className="h-1 w-24 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-10">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -123,49 +124,47 @@ const Projects = () => {
               <div className="bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-teal-500/50 hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                 <div className="p-6 flex-1 flex flex-col">
                   {/* Category */}
-                  <p className="text-xs text-teal-600 dark:text-teal-400 mb-2 font-semibold uppercase tracking-wider">
+                  <p className="text-xs text-white/70 mb-2 font-semibold uppercase tracking-wider">
                     {project.category}
                   </p>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-teal-400 transition-colors">
                 {project.title}
               </h3>
               
                   {/* One-sentence summary instead of long bullets */}
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed text-base flex-1">
-                    {project.bullets[0].split('.')[0] + '.'}
-              </p>
+                  <div className="text-white/80 mb-4 leading-relaxed text-base flex-1" dangerouslySetInnerHTML={{ __html: project.bullets[0] }} />
 
                   {/* Technologies - Compact */}
               <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.slice(0, 4).map((tech) => (
                   <span
                     key={tech}
-                        className="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs font-medium border border-gray-200 dark:border-gray-600"
+                        className="px-2.5 py-1 bg-white/20 text-white/90 rounded text-xs font-medium border border-white/30"
                   >
                     {tech}
                   </span>
                 ))}
                     {project.technologies.length > 4 && (
-                      <span className="px-2.5 py-1 text-gray-500 dark:text-gray-400 text-xs">
+                      <span className="px-2.5 py-1 text-white/60 text-xs">
                         +{project.technologies.length - 4} more
                       </span>
                     )}
               </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-2 pt-4 border-t border-gray-200 dark:border-gray-700">
+                  <div className="flex gap-2 pt-4 border-t border-white/20">
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center space-x-2 px-4 py-2.5 bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-teal-600 dark:hover:bg-teal-600 transition-all duration-200 text-sm font-semibold hover:scale-105"
+                      className="flex-1 flex items-center justify-center space-x-2 px-4 py-2.5 bg-white/20 text-white rounded-lg hover:bg-white/30 transition-all duration-200 text-sm font-semibold hover:scale-105"
                 >
                   <Github size={16} />
                   <span>Code</span>
                 </a>
-                    {project.demo && (
+                    {project.title === 'Bifocal' && project.demo && project.demo !== '#' && (
                       <a
                         href={project.demo}
                         target="_blank"
@@ -181,7 +180,7 @@ const Projects = () => {
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center space-x-2 px-4 py-2.5 bg-white dark:bg-gray-800 border-2 border-teal-500/30 text-teal-600 dark:text-teal-400 rounded-lg hover:border-teal-500 hover:bg-teal-50 dark:hover:bg-teal-900/20 transition-all duration-200 text-sm font-semibold"
+                        className="flex-1 flex items-center justify-center space-x-2 px-4 py-2.5 bg-white/10 border-2 border-white/30 text-white rounded-lg hover:border-white/50 hover:bg-white/20 transition-all duration-200 text-sm font-semibold"
                 >
                         <ExternalLink size={16} />
                   <span>Live</span>

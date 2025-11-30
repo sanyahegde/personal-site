@@ -208,7 +208,31 @@ const Highlights = () => {
     }
   ]
 
-  // Section 3: Blog Posts
+  // Section 3: Projects
+  const projects = [
+    {
+      title: 'Diving into 3D Modeling',
+      summary: 'Exploring 3D modeling and design through hands-on projects and experimentation.',
+      link: 'https://youtu.be/uyoE0Nef5vQ'
+    },
+    {
+      title: 'NotionCards',
+      summary: 'A web app to convert Notion toggles into flashcards with spaced repetition algorithm.',
+      link: 'https://github.com/sanyahegde/notion-cards'
+    },
+    {
+      title: 'Comet Marketplace',
+      summary: 'A full-stack marketplace platform with user authentication and product management.',
+      link: 'https://github.com/sanyahegde/CometMarketplace'
+    },
+    {
+      title: 'OneView',
+      summary: 'A comprehensive data visualization and analytics platform with interactive dashboards.',
+      link: 'https://github.com/sanyahegde/oneview'
+    }
+  ]
+
+  // Section 4: Blog Posts
   const blogPosts = [
     {
       title: 'How I built NotionCards',
@@ -300,7 +324,52 @@ const Highlights = () => {
         </div>
         </motion.section>
 
-        {/* Section 3: Mini Blog Cards */}
+        {/* Section 3: Projects */}
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-24"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+            Projects
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#0d9488] transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed mb-4 text-base">
+                      {project.summary}
+                    </p>
+                    <div className="flex items-center space-x-2 text-[#0d9488] hover:text-[#0d9488]/80 font-medium group-hover:translate-x-1 transition-transform">
+                      <span>View project</span>
+                      <ArrowRight size={16} />
+                    </div>
+                  </div>
+                </a>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* Section 4: Mini Blog Cards */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -323,7 +392,7 @@ const Highlights = () => {
           </div>
         </motion.section>
 
-        {/* Section 4: Snippets Carousel */}
+        {/* Section 5: Snippets Carousel */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

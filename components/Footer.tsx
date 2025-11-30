@@ -20,7 +20,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-gray-900 dark:bg-black text-white py-12 relative">
+    <footer className="bg-[#0a192f] text-white py-12 relative">
       <div className="container-custom">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
@@ -31,7 +31,7 @@ const Footer = () => {
               </div>
               <span className="text-xl font-bold">Sanya Hegde</span>
             </div>
-            <p className="text-gray-300 mb-4 max-w-md">
+            <p className="text-white/70 mb-4 max-w-md">
               A passionate full-stack developer dedicated to creating innovative web solutions 
               and exceptional user experiences.
             </p>
@@ -45,7 +45,7 @@ const Footer = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 hover:bg-blue-600 hover:text-white transition-all duration-200"
+                  className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/80 hover:bg-teal-500 hover:text-white transition-all duration-200 border border-white/20"
                 >
                   <span className="text-sm font-medium">{social.name[0]}</span>
                 </a>
@@ -61,7 +61,7 @@ const Footer = () => {
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
-                    className="text-gray-300 hover:text-blue-400 transition-colors duration-200"
+                    className="text-white/70 hover:text-teal-400 transition-colors duration-200"
                   >
                     {item}
                   </a>
@@ -73,7 +73,7 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
-            <ul className="space-y-2 text-gray-300">
+            <ul className="space-y-2 text-white/70">
               <li>sanyahegde7@gmail.com</li>
               <li>Dallas, Texas</li>
             </ul>
@@ -81,13 +81,13 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between">
+        <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row items-center justify-between">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-gray-400 text-sm mb-4 md:mb-0"
+            className="text-white/60 text-sm mb-4 md:mb-0"
           >
             © 2024 Sanya Hegde. All rights reserved. Made with{' '}
             <Heart size={16} className="inline text-red-500" /> and lots of coffee.
@@ -99,7 +99,7 @@ const Footer = () => {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               onClick={scrollToTop}
-              className="w-12 h-12 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center text-white transition-all duration-200 hover:scale-110"
+              className="w-12 h-12 bg-teal-600 hover:bg-teal-700 rounded-full flex items-center justify-center text-white transition-all duration-200 hover:scale-110"
             >
               <ArrowUp size={20} />
             </motion.button>

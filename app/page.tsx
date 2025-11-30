@@ -6,7 +6,7 @@ import Hero from '@/components/Hero'
 import About from '@/components/About'
 import CurrentlyBuilding from '@/components/CurrentlyBuilding'
 import Projects from '@/components/Projects'
-import Experience from '@/components/Experience'
+import Education from '@/components/Education'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import ThemeToggle from '@/components/ThemeToggle'
@@ -40,12 +40,12 @@ export default function Home() {
     <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'dark' : ''}`}>
       <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
       <Header />
-      <main className="bg-white dark:bg-gray-900">
+      <main className="bg-[#0a192f] dark:bg-[#0a192f]">
         <Hero />
         <About />
         <CurrentlyBuilding />
         <Projects />
-        <Experience />
+        <Education />
         <Contact />
       </main>
       <Footer />

@@ -42,7 +42,7 @@ const CodeBackground = () => {
             style={{
               left: `${5 + i * 2}%`,
               top: `${10 + i * 15}%`,
-              color: i % 2 === 0 ? '#0d9488' : '#14b8a6',
+              color: i % 2 === 0 ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.3)',
               textShadow: '0 0 8px currentColor',
               filter: 'blur(0.3px)'
             }}
@@ -72,7 +72,7 @@ const CodeBackground = () => {
             style={{
               right: `${5 + i * 2}%`,
               top: `${15 + i * 18}%`,
-              color: i % 2 === 0 ? '#14b8a6' : '#0d9488',
+              color: i % 2 === 0 ? 'rgba(255, 255, 255, 0.3)' : 'rgba(255, 255, 255, 0.4)',
               textShadow: '0 0 8px currentColor',
               filter: 'blur(0.3px)'
             }}
@@ -102,7 +102,7 @@ const CodeBackground = () => {
           style={{
             left: i % 2 === 0 ? `${8 + i * 3}%` : `${92 - i * 3}%`,
             top: `${20 + i * 25}%`,
-            color: i % 2 === 0 ? '#0d9488' : '#14b8a6',
+            color: i % 2 === 0 ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.3)',
             textShadow: '0 0 8px currentColor',
             filter: 'blur(0.3px)'
           }}

@@ -49,7 +49,7 @@ function optimize() {
   ]
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 py-20 relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-[#0a192f] dark:bg-[#0a192f] py-20 relative overflow-hidden">
       <CodeBackground />
       <div className="container-custom max-w-6xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-start lg:items-center">
@@ -68,7 +68,7 @@ function optimize() {
               className="flex justify-center lg:justify-start mb-6"
             >
               <div className="relative">
-                <div className="w-36 h-36 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-200 dark:border-gray-700 shadow-xl bg-gray-100 dark:bg-gray-800">
+                <div className="w-36 h-36 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-white/30 shadow-xl bg-white/10">
                   <img 
                     src="/sanyahegde.jpg" 
                     alt="Sanya Hegde" 
@@ -78,7 +78,7 @@ function optimize() {
                       const target = e.target as HTMLImageElement;
                       target.style.display = 'none';
                       if (target.parentElement) {
-                        target.parentElement.innerHTML = '<span class="text-4xl md:text-5xl font-bold text-gray-400 dark:text-gray-500 flex items-center justify-center w-full h-full bg-gray-200 dark:bg-gray-700">SH</span>';
+                        target.parentElement.innerHTML = '<span class="text-4xl md:text-5xl font-bold text-white/60 flex items-center justify-center w-full h-full bg-white/10">SH</span>';
                       }
                     }}
                   />
@@ -91,7 +91,7 @@ function optimize() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white"
+              className="text-4xl md:text-5xl font-bold text-white"
           >
               Sanya Hegde
               <span className="block mt-3">
@@ -104,7 +104,7 @@ function optimize() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl md:text-2xl font-semibold text-gray-700 dark:text-gray-300"
+              className="text-xl md:text-2xl font-semibold text-white/80"
           >
               Computer Science Student
           </motion.h2>
@@ -114,7 +114,7 @@ function optimize() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex items-center justify-center lg:justify-start space-x-2 text-gray-500 dark:text-gray-400"
+              className="flex items-center justify-center lg:justify-start space-x-2 text-white/70"
             >
               <MapPin size={18} />
               <span className="text-lg">Dallas, Texas</span>
@@ -133,7 +133,7 @@ function optimize() {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700 hover:bg-teal-500 hover:text-white hover:border-teal-500 transition-all duration-200 hover:scale-110"
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white/80 border border-white/30 hover:bg-teal-500 hover:text-white hover:border-teal-500 transition-all duration-200 hover:scale-110"
                   aria-label={social.label}
                 >
                   <social.icon size={20} />
@@ -159,17 +159,17 @@ function optimize() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative lg:-mt-6"
           >
-            <div className="relative bg-gray-900 rounded-xl shadow-2xl overflow-hidden border border-gray-700">
+            <div className="relative bg-white/5 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden border border-white/20">
               {/* Code Editor Header */}
-              <div className="flex items-center space-x-2 px-4 py-3 bg-gray-800 border-b border-gray-700">
+              <div className="flex items-center space-x-2 px-4 py-3 bg-white/10 border-b border-white/20">
                 <div className="flex space-x-2">
                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
                 <div className="flex items-center space-x-2 ml-4">
-                  <Code size={16} className="text-gray-400" />
-                  <span className="text-sm text-gray-400 font-mono">code.js</span>
+                  <Code size={16} className="text-white/60" />
+                  <span className="text-sm text-white/60 font-mono">code.js</span>
                 </div>
               </div>
 
@@ -180,7 +180,7 @@ function optimize() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="text-gray-300 leading-relaxed"
+                  className="text-white/80 leading-relaxed"
                 >
                   {codeSnippets[currentCode].split('\n').map((line, i) => (
                     <motion.div
@@ -189,14 +189,14 @@ function optimize() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.3, delay: i * 0.1 }}
                     >
-                      <span className="text-gray-500 mr-4">{i + 1}</span>
+                      <span className="text-white/40 mr-4">{i + 1}</span>
                       <span className={line.includes('const') || line.includes('function') || line.includes('class') 
-                        ? 'text-purple-400' 
+                        ? 'text-purple-300' 
                         : line.includes('return') || line.includes('build') || line.includes('learn') || line.includes('innovate')
-                        ? 'text-yellow-400'
+                        ? 'text-yellow-300'
                         : line.includes('"') || line.includes("'")
-                        ? 'text-green-400'
-                        : 'text-gray-300'
+                        ? 'text-green-300'
+                        : 'text-white/80'
                       }>
                         {line.trim() || '\u00A0'}
                       </span>
